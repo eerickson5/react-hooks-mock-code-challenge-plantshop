@@ -13,18 +13,20 @@ function PlantPage() {
     .then( data => setPlants(data))
   }, [])
 
-
   const submitForm = (formData) => {
     const newPlant = {
       ...formData,
-      id: plants[plants.length - 1].id + 1
+      //id: plants[plants.length - 1].id + 1
     }
-    console.log(newPlant)
+   
 
-    setPlants([
-      ...plants,
-      newPlant,
-    ])
+    fetch("http://localhost:6001/plants", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data => setPlants([...plants, data]))
   }
 
   return (
