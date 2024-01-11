@@ -22,19 +22,19 @@
       "id": 4,
       "name": "Pothos",
       "image": "./images/pothos.jpg",
-      "price": 12.11
+      "price": 14.11
     },
     {
       "id": 5,
       "name": "Jade",
       "image": "./images/jade.jpg",
-      "price": 10.37
+      "price": 12.37
     },
     {
       "id": 6,
       "name": "Monstera Deliciosa",
       "image": "./images/monstera.jpg",
-      "price": 25.99
+      "price": 26.99
     },
     {
       "id": 7,
@@ -45,7 +45,7 @@
     {
       "name": "Planteous Maximmus",
       "image": "https://images.pexels.com/photos/16537239/pexels-photo-16537239/free-photo-of-green-mango-on-branch.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "price": "12423",
+      "price": "1242311",
       "id": 8
     }
   ]

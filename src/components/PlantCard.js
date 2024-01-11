@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-function PlantCard({plant}) {
+function PlantCard({plant, onRaisePrice}) {
 
   const [isInStock, setInStock] = useState(true)
+
   return (
     <li className="card">
       <img src={plant.image} alt={plant.name} />
@@ -13,6 +14,9 @@ function PlantCard({plant}) {
       ) : (
         <button onClick={ () => setInStock(!isInStock)}>Out of Stock</button>
       )}
+
+      <button onClick={ () => onRaisePrice(plant)} >Raise Price</button>
+      <button className="red">Remove</button>
     </li>
   );
 }

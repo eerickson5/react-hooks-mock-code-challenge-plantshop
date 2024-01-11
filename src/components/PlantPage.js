@@ -15,12 +15,6 @@ function PlantPage() {
   }, [])
 
   const submitForm = (formData) => {
-    const newPlant = {
-      ...formData,
-      //id: plants[plants.length - 1].id + 1
-    }
-   
-
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -31,6 +25,20 @@ function PlantPage() {
   }
 
 
+  const handleRaisePrice = (plant) => {
+    console.log("raising")
+    fetch(`http://localhost:6001/plants/${plant.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({"price": plant.price + 1})
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setPlants(plants.map(plantOfPlants => plantOfPlants.id === plant.id ? data : plantOfPlants))
+    })
+  }
+
   const filteredPlants = searchString.length === 0 ? plants : plants.filter(plant => plant.name.toLowerCase().includes(searchString.toLowerCase()))
 
 
@@ -38,7 +46,7 @@ function PlantPage() {
     <main>
       <NewPlantForm handleSubmitForm={submitForm}/>
       <Search searchString={searchString} onSearch={(e) => setSearchString(e.target.value)}/>
-      <PlantList plants={filteredPlants}/>
+      <PlantList plants={filteredPlants} onRaisePrice={handleRaisePrice}/>
     </main>
   );
 }
