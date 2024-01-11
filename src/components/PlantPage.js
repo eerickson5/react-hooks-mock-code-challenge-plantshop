@@ -13,9 +13,23 @@ function PlantPage() {
     .then( data => setPlants(data))
   }, [])
 
+
+  const submitForm = (formData) => {
+    const newPlant = {
+      ...formData,
+      id: plants[plants.length - 1].id + 1
+    }
+    console.log(newPlant)
+
+    setPlants([
+      ...plants,
+      newPlant,
+    ])
+  }
+
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm handleSubmitForm={submitForm}/>
       <Search />
       <PlantList plants={plants}/>
     </main>
