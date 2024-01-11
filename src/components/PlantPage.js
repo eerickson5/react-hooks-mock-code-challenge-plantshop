@@ -39,6 +39,17 @@ function PlantPage() {
     })
   }
 
+  const handleRemovePlant = (plant) => {
+    fetch(`http://localhost:6001/plants/${plant.id}`,{
+      method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setPlants(plants.filter(plantOfPlants => plantOfPlants.id !== plant.id))
+    })
+  }
+
   const filteredPlants = searchString.length === 0 ? plants : plants.filter(plant => plant.name.toLowerCase().includes(searchString.toLowerCase()))
 
 
@@ -46,7 +57,7 @@ function PlantPage() {
     <main>
       <NewPlantForm handleSubmitForm={submitForm}/>
       <Search searchString={searchString} onSearch={(e) => setSearchString(e.target.value)}/>
-      <PlantList plants={filteredPlants} onRaisePrice={handleRaisePrice}/>
+      <PlantList plants={filteredPlants} onRaisePrice={handleRaisePrice} onRemovePlant={handleRemovePlant}/>
     </main>
   );
 }

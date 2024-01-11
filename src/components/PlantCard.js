@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function PlantCard({plant, onRaisePrice}) {
+function PlantCard({plant, onRaisePrice, onRemovePlant}) {
 
   const [isInStock, setInStock] = useState(true)
 
@@ -16,7 +16,7 @@ function PlantCard({plant, onRaisePrice}) {
       )}
 
       <button onClick={ () => onRaisePrice(plant)} >Raise Price</button>
-      <button className="red">Remove</button>
+      <button onClick={ () => onRemovePlant(plant)} className="red">Remove</button>
     </li>
   );
 }

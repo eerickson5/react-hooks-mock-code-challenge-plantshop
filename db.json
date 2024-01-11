@@ -37,12 +37,6 @@
       "price": 26.99
     },
     {
-      "id": 7,
-      "name": "Fiddle Leaf Fig",
-      "image": "./images/fiddle-leaf-fig.jpg",
-      "price": 55
-    },
-    {
       "name": "Planteous Maximmus",
       "image": "https://images.pexels.com/photos/16537239/pexels-photo-16537239/free-photo-of-green-mango-on-branch.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "price": "1242311",
